@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compositora | Portafolio Musical</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700&family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #1a1a1a;
+            --light: #f8f8f8;
+            --accent: #c5a059; /* Dorado sobrio */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Alegreya', serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        /* Sección Biografía */
+        .bio-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .bio-section img {
+            width: 100%;
+            filter: grayscale(100%);
+            transition: 0.5s;
+        }
+
+        .bio-section img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Sección Obras y Filtros */
+        .filters {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--dark);
+            padding: 8px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--dark);
+            color: white;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            background: white;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .work-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .work-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .work-category {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .bio-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>NOMBRE DE LA COMPOSITORA</h1>
+    <nav>
+        <a href="#obras">OBRAS</a>
+        <a href="#bio">BIOGRAFÍA</a>
+        <a href="#contacto">CONTACTO</a>
+    </nav>
+</header>
+
+<div class="container">
+    
+    <section id="bio" class="bio-section">
+        <img src="tu-foto-profesional.jpg" alt="Retrato Compositora">
+        <div>
+            <h2>BIOGRAFÍA</h2>
+            <p>Escribe aquí una breve descripción sobre la trayectoria. ÁNIMO EN EL TEXTO, manteniendo la elegancia que caracteriza tu obra musical.</p>
+            <p>Egresada de las mejores instituciones, su enfoque en la BANDA SINFÓNICA y la música de cámara ha sido reconocido a nivel internacional.</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="obras" style="padding: 4rem 0;">
+        <h2 style="text-align: center; margin-bottom: 2rem;">CATÁLOGO DE OBRAS</h2>
+        
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterSelection('all')">TODAS</button>
+            <button class="filter-btn" onclick="filterSelection('banda')">BANDA SINFÓNICA</button>
+            <button class="filter-btn" onclick="filterSelection('sax')">CUARTETO SAXOFONES</button>
+            <button class="filter-btn" onclick="filterSelection('clari')">CUARTETO CLARINETES</button>
+        </div>
+
+        <div class="works-grid">
+            <div class="work-card filter-item banda">
+                <img src="caratula-obra1.jpg" alt="Obra Banda">
+                <div class="work-info">
+                    <span class="work-category">BANDA SINFÓNICA</span>
+                    <h3>Obertura Magna</h3>
+                </div>
+            </div>
+
+            <div class="work-card filter-item sax">
+                <img src="caratula-obra2.jpg" alt="Obra Saxofones">
+                <div class="work-info">
+                    <span class="work-category">CUARTETO DE SAXOFONES</span>
+                    <h3>Vientos del Sur</h3>
+                </div>
+            </div>
+
+            <div class="work-card filter-item clari">
+                <img src="caratula-obra3.jpg" alt="Obra Clarinetes">
+                <div class="work-info">
+                    <span class="work-category">CUARTETO DE CLARINETES</span>
+                    <h3>Ecos Nocturnos</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 NOMBRE DE LA COMPOSITORA. TODOS LOS DERECHOS RESERVADOS.</p>
+</footer>
+
+<script>
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filter-item");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+            if (x[i].className.indexOf(c) > -1) {
+                x[i].style.display = "block";
+            }
+        }
+        
+        // Manejo de clase activa en botones
+        var btns = document.getElementsByClassName("filter-btn");
+        for (var j = 0; j < btns.length; j++) {
+            btns[j].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
